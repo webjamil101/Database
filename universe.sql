@@ -1,9 +1,13 @@
-
+-- =========================
+-- Create database
+-- =========================
 CREATE DATABASE universe;
 
 \c universe
 
-
+-- =========================
+-- Galaxy table
+-- =========================
 CREATE TABLE galaxy (
     galaxy_id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL,
@@ -15,7 +19,9 @@ CREATE TABLE galaxy (
     distance_from_earth NUMERIC
 );
 
-
+-- =========================
+-- Star table
+-- =========================
 CREATE TABLE star (
     star_id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL,
@@ -28,7 +34,9 @@ CREATE TABLE star (
     temperature NUMERIC
 );
 
-
+-- =========================
+-- Planet table
+-- =========================
 CREATE TABLE planet (
     planet_id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL,
@@ -41,7 +49,9 @@ CREATE TABLE planet (
     diameter_km NUMERIC
 );
 
-
+-- =========================
+-- Moon table
+-- =========================
 CREATE TABLE moon (
     moon_id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL,
@@ -54,7 +64,9 @@ CREATE TABLE moon (
     radius_km NUMERIC
 );
 
-
+-- =========================
+-- 5th table (comet)
+-- =========================
 CREATE TABLE comet (
     comet_id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL,
@@ -64,7 +76,9 @@ CREATE TABLE comet (
     last_seen_year INT
 );
 
-
+-- =========================
+-- Insert galaxies (6 rows)
+-- =========================
 INSERT INTO galaxy VALUES
 (1,'Milky Way','Our home galaxy',true,true,13600,'Spiral',0),
 (2,'Andromeda','Nearest spiral galaxy',false,true,10000,'Spiral',2537000),
@@ -73,7 +87,9 @@ INSERT INTO galaxy VALUES
 (5,'Whirlpool','Interacting galaxy',false,true,4000,'Spiral',31000000),
 (6,'Messier 87','Supergiant galaxy',false,true,12000,'Elliptical',55000000);
 
-
+-- =========================
+-- Insert stars (6 rows)
+-- =========================
 INSERT INTO star VALUES
 (1,'Sun',1,'Home star',true,true,4600,'G-Type',5778),
 (2,'Sirius',1,'Brightest star',false,true,300,'A-Type',9940),
@@ -82,7 +98,9 @@ INSERT INTO star VALUES
 (5,'Vega',1,'Bright star',false,true,450,'A-Type',9602),
 (6,'Polaris',1,'North Star',false,true,7000,'F-Type',6015);
 
-
+-- =========================
+-- Insert planets (12 rows)
+-- =========================
 INSERT INTO planet VALUES
 (1,'Mercury',1,'Small planet',false,true,4500,'Terrestrial',4879),
 (2,'Venus',1,'Hot planet',false,true,4600,'Terrestrial',12104),
@@ -97,7 +115,9 @@ INSERT INTO planet VALUES
 (11,'HD 209458 b',2,'Hot Jupiter',false,true,3000,'Gas Giant',140000),
 (12,'Gliese 581c',3,'Rocky exoplanet',false,true,5000,'Exoplanet',15000);
 
-
+-- =========================
+-- Insert moons (20 rows)
+-- =========================
 INSERT INTO moon VALUES
 (1,'Moon',3,'Earth moon',false,true,4500,27,1737),
 (2,'Phobos',4,'Mars moon',false,true,4500,0.3,11),
@@ -120,7 +140,9 @@ INSERT INTO moon VALUES
 (19,'Nereid',8,'Irregular moon',false,true,4500,360,170),
 (20,'Proteus',8,'Dark moon',false,true,4500,1.1,210);
 
-
+-- =========================
+-- Insert comets (3 rows)
+-- =========================
 INSERT INTO comet VALUES
 (1,'Halley','Famous comet',true,75,1986),
 (2,'Hale-Bopp','Bright comet',false,2500,1997),
